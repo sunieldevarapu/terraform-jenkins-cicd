@@ -4,7 +4,7 @@ resource "aws_db_instance" "databasename" {
   engine                 = "mysql"
   instance_class         = "db.t2.micro"
   allocated_storage      = 5
-  availability_zone      = "us-east-1a"
+  availability_zone      = "us-east-1c"
   db_name                = "database${count.index + 1}"
   username               = "admin"
   password               = "password"
@@ -19,7 +19,7 @@ resource "aws_db_instance" "databasename_2" {
   engine                 = "mysql"
   instance_class         = "db.t2.micro"
   allocated_storage      = 5
-  availability_zone      = "us-east-1b"
+  availability_zone      = "us-east-1d"
   db_name                = "database${count.index + 1}"
   username               = "admin"
   password               = "password"

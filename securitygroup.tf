@@ -3,18 +3,18 @@ resource "aws_security_group" "default" {
   vpc_id = aws_vpc.startup_vpc.id
 
   ingress {
-    protocol   = "-1"
-    self       = true
-    from_port  = 0
-    to_port    = 0
-    cidr_block = ["0.0.0.0/0"]
+    protocol    = "-1"
+    self        = true
+    from_port   = 0
+    to_port     = 0
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port  = 0
-    to_port    = 0
-    protocol   = "-1"
-    cidr_block = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
@@ -22,18 +22,18 @@ resource "aws_security_group" "webserver_sg" {
   vpc_id = aws_vpc.startup_vpc.id
 
   ingress {
-    protocol   = "tcp"
-    self       = true
-    from_port  = 80
-    to_port    = 80
-    cidr_block = ["0.0.0.0/0"]
+    protocol    = "tcp"
+    self        = true
+    from_port   = 80
+    to_port     = 80
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
-    from_port  = 0
-    to_port    = 0
-    protocol   = "-1"
-    cidr_block = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
@@ -42,10 +42,10 @@ resource "aws_security_group" "db_security_group" {
   vpc_id      = aws_vpc.startup_vpc.id
 
   ingress {
-    from_port  = 3306
-    to_port    = 3306
-    protocol   = "tcp"
-    cidr_block = [aws_vpc.startup_vpc.cidr_block]
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = [aws_vpc.startup_vpc.cidr_block]
   }
 
   tags = {
@@ -70,7 +70,7 @@ resource "aws_security_group_rule" "web_to_lb" {
   from_port         = 80
   to_port           = 80
   protocol          = "tcp"
-  cidr_block        = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "web_to_lb_secure" {
@@ -79,7 +79,7 @@ resource "aws_security_group_rule" "web_to_lb_secure" {
   from_port         = 443
   to_port           = 443
   protocol          = "tcp"
-  cidr_block        = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "lb_egress" {
@@ -88,7 +88,7 @@ resource "aws_security_group_rule" "lb_egress" {
   from_port         = 0
   to_port           = 0
   protocol          = "-1"
-  cidr_block        = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_db_subnet_group" "subnet_group" {

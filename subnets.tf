@@ -11,7 +11,7 @@ resource "random_shuffle" "public_az" {
 
 resource "aws_subnet" "web_server_subnet_1" {
   vpc_id                  = aws_vpc.startup_vpc.id
-  availability_zone       = "us-east-1"
+  availability_zone       = "us-east-1a"
   cidr_block              = "10.2.2.0/24"
   map_public_ip_on_launch = true
 
@@ -22,7 +22,7 @@ resource "aws_subnet" "web_server_subnet_1" {
 
 resource "aws_subnet" "web_server_subnet_2" {
   vpc_id                  = aws_vpc.startup_vpc.id
-  availability_zone       = "us-east-1"
+  availability_zone       = "us-east-1b"
   cidr_block              = "10.2.4.0/24"
   map_public_ip_on_launch = true
 
@@ -33,7 +33,7 @@ resource "aws_subnet" "web_server_subnet_2" {
 
 resource "aws_subnet" "database_subnet_1" {
   vpc_id                  = aws_vpc.startup_vpc.id
-  availability_zone       = "us-east-1"
+  availability_zone       = "us-east-1c"
   cidr_block              = "10.2.6.0/24"
   map_public_ip_on_launch = true
 
@@ -44,7 +44,7 @@ resource "aws_subnet" "database_subnet_1" {
 
 resource "aws_subnet" "database_subnet_2" {
   vpc_id                  = aws_vpc.startup_vpc.id
-  availability_zone       = "us-east-1"
+  availability_zone       = "us-east-1d"
   cidr_block              = "10.2.8.0/24"
   map_public_ip_on_launch = true
 

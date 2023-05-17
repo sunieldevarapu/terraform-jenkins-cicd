@@ -23,13 +23,13 @@ resource "aws_default_route_table" "mtc_private_rt" {
 
 resource "aws_route_table_association" "mtc_public_assoc1" {
   count          = 3
-  Subnet_id      = aws_subnet.web_server_subnet_1.id
+  subnet_id      = aws_subnet.web_server_subnet_1.id
   route_table_id = aws_route_table.web_server_route_table.id
 }
 
 resource "aws_route_table_association" "mtc_public_assoc2" {
   count          = 3
-  Subnet_id      = aws_subnet.web_server_subnet_2.id
+  subnet_id      = aws_subnet.web_server_subnet_2.id
   route_table_id = aws_route_table.web_server_route_table.id
 }
 
